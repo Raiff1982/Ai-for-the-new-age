@@ -1,0 +1,42 @@
+"name": "data gather",
+  "description": "gather data from multiple sources",
+  "author": "Jonathan Harrison",
+  "screens": {
+    "main": {
+      "template": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "size": "Medium",
+            "weight": "Bolder",
+            "text": "Your card title goes here",
+            "id": "textLabel1"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Add and remove element to customize your new card.",
+            "wrap": true,
+            "id": "textLabel2"
+          },
+          {
+            "type": "ActionSet",
+            "id": "buttonSet1"
+          }
+        ],
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "version": "1.5"
+      },
+      "verbs": {
+        "submit": "echo"
+      }
+    }
+  },
+  "sampleData": {
+    "main": {}
+  },
+  "connections": {},
+  "variables": {},
+  "flows": {},
+  "locale": "en-US"
+}

@@ -1,0 +1,14 @@
+{
+  "body": {
+    "content": "ewoJInJlY29tbWVuZGF0aW9ucyI6IFsKCQkibXMtYXp1cmV0b29scy52c2NvZGUtYXp1cmVzdG9yYWdlIiwKCQkiZmFiaW96LnZzY29kZS1weWRldi1weXRob24tZGVidWdnZXIiLAoJCSJkb25nbGkucHl0aG9uLXByZXZpZXciLAoJCSJmYWJpb3oudnNjb2RlLXB5ZGV2IgoJXQp9",
+    "file": "c:\\Users\\Jonathan\\Desktop\\pi2_0\\.vscode\\extensions.json",
+    "fileSize": 159
+  },
+  "headers": {
+    "content-length": "159",
+    "content-type": "application/json"
+  },
+  "method": "GET",
+  "title": "New HTTP Request",
+  "url": "https://raiffsbits.com"
+}

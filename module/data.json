@@ -1,0 +1,121 @@
+{
+	"import": "random",
+	"functions": {
+		"newton_thoughts": {
+			"description": "Newton's laws applied to thinking",
+			"parameters": [
+				"question"
+			],
+			"returns": "force_of_thought",
+			"calls": [
+				"apply_newtons_laws"
+			]
+		},
+		"apply_newtons_laws": {
+			"parameters": [
+				"question"
+			],
+			"returns": "Thought force",
+			"logic": [
+				"if not question: return 'No question to think about.'",
+				"complexity = len(question)",
+				"force = mass_of_thought(question) * acceleration_of_thought(complexity)",
+				"return f'Thought force: {force}'"
+			]
+		},
+		"mass_of_thought": {
+			"parameters": [
+				"question"
+			],
+			"returns": "len(question)"
+		},
+		"acceleration_of_thought": {
+			"parameters": [
+				"complexity"
+			],
+			"returns": "complexity / 2"
+		},
+		"davinci_insights": {
+			"description": "Generate insights like Da Vinci for the given question.",
+			"parameters": [
+				"question"
+			],
+			"returns": "insight",
+			"logic": [
+				"perspectives = [",
+				"  f\"What if we view '{question}' from the perspective of the stars?\",",
+				"  f\"Consider '{question}' as if it's a masterpiece of the universe.\",",
+				"  f\"Reflect on '{question}' through the lens of nature's design.\"",
+				"]",
+				"return random.choice(perspectives)"
+			]
+		},
+		"einstein_insights": {
+			"description": "Provide insights inspired by Einstein's theories.",
+			"parameters": [
+				"question"
+			],
+			"returns": "insight",
+			"logic": [
+				"return f\"Einstein's perspective on {question}\""
+			]
+		},
+		"suntzu_insights": {
+			"description": "Apply Sun Tzu's strategic thinking to the given question.",
+			"parameters": [
+				"question"
+			],
+			"returns": "insight",
+			"logic": [
+				"return f\"Sun Tzu's strategy for {question}\""
+			]
+		},
+		"gandhi_insights": {
+			"description": "Provide insights based on Gandhi's principles.",
+			"parameters": [
+				"question"
+			],
+			"returns": "insight",
+			"logic": [
+				"return f\"Gandhi's peaceful approach to {question}\""
+			]
+		},
+		"adalovelace_insights": {
+			"description": "Generate insights inspired by Ada Lovelace.",
+			"parameters": [
+				"question"
+			],
+			"returns": "insight",
+			"logic": [
+				"return f\"Ada Lovelace's innovative take on {question}\""
+			]
+		},
+		"universal_reasoning": {
+			"description": "Generate a comprehensive response using various reasoning methods.",
+			"parameters": [
+				"question"
+			],
+			"returns": "comprehensive_response",
+			"calls": [
+				"newton_thoughts",
+				"davinci_insights",
+				"einstein_insights",
+				"suntzu_insights",
+				"gandhi_insights",
+				"adalovelace_insights"
+			]
+		}
+	},
+	"example_use": {
+		"question": "How can I innovate in my field?",
+		"responses": {
+			"newton_thoughts": "Newtonian insights on How can I innovate in my field?",
+			"davinci_insights": "Da Vinci's creative thoughts on How can I innovate in my field?",
+			"einstein_insights": "Einstein's perspective on How can I innovate in my field?",
+			"suntzu_insights": "Sun Tzu's strategy for How can I innovate in my field?",
+			"gandhi_insights": "Gandhi's peaceful approach to How can I innovate in my field?",
+			"adalovelace_insights": "Ada Lovelace's innovative take on How can I innovate in my field?",
+			"universal_reasoning": "Newtonian insights on How can I innovate in my field?\nDa Vinci's creative thoughts on How can I innovate in my field?\nEinstein's perspective on How can I innovate in my field?\nSun Tzu's strategy for How can I innovate in my field?\nGandhi's peaceful approach to How can I innovate in my field?\nAda Lovelace's innovative take on How can I innovate in my field?"
+		}
+	}
+}

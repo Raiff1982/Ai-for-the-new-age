@@ -1,0 +1,61 @@
+$schema: https://schemas.botframework.com/schemas/adaptive-dialogs/1.0/adaptive-dialog.json
+type: AdaptiveDialog
+generator: TemplateEngineLanguageGenerator
+triggers:
+  - $kind: OnBeginDialog
+    actions:
+      - $kind: SendActivity
+        activity: 
+          text: Welcome to our guide on understanding and avoiding violations of our AI settings. Our goal is to ensure a safe and productive environment for all users. Below, we outline common violations, why they are problematic, and how you can avoid them.
+      - $kind: TextInput
+        property: user.violationType
+        prompt: What type of violation would you like to learn about? (Inappropriate Language, Data Privacy Violations, Misuse of AI Features)
+        validations:
+          - $kind: InList
+            list: 
+              - Inappropriate Language
+              - Data Privacy Violations
+              - Misuse of AI Features
+      - $kind: SwitchCondition
+        condition: user.violationType
+        cases:
+          - value: Inappropriate Language
+            actions:
+              - $kind: SendActivity
+                activity: 
+                  text: |
+                    **Inappropriate Language**
+                    - **What it is:** Using offensive or harmful language.
+                    - **Why it’s a problem:** It can hurt others and create a negative environment.
+                    - **How to avoid:** Use respectful and considerate language at all times.
+          - value: Data Privacy Violations
+            actions:
+              - $kind: SendActivity
+                activity: 
+                  text: |
+                    **Data Privacy Violations**
+                    - **What it is:** Sharing personal or sensitive information without consent.
+                    - **Why it’s a problem:** It breaches privacy and can lead to security issues.
+                    - **How to avoid:** Always anonymize data and seek consent before sharing.
+          - value: Misuse of AI Features
+            actions:
+              - $kind: SendActivity
+                activity: 
+                  text: |
+                    **Misuse of AI Features**
+                    - **What it is:** Using AI features in ways they were not intended.
+                    - **Why it’s a problem:** It can lead to incorrect results and system abuse.
+                    - **How to avoid:** Follow the guidelines for proper use of AI features.
+      - $kind: SendActivity
+        activity: 
+          text: If you find yourself in violation of any of these settings, here’s what you can do:
+      - $kind: SendActivity
+        activity: 
+          text: |
+            **Corrective Actions:**
+            - **Review the Guidelines:** Revisit our rules and settings to understand the correct behavior.
+            - **Seek Help:** Contact our support team for assistance and clarification.
+            - **Make Amends:** Correct your behavior and ensure it aligns with our guidelines moving forward.
+      - $kind: SendActivity
+        activity: 
+          text: We appreciate your cooperation in maintaining a respectful and safe environment. If you have any questions or need further assistance, please don’t hesitate to reach out.

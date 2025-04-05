@@ -1,0 +1,327 @@
+<<<<<<< HEAD
+(function () {
+    // Synchronous functions
+    const add = (x) => x + 1;
+    const multiply = (x) => x * 2;
+
+    // Enhanced error handling for asynchronous functions using Promises
+    const addAsync = (x) => {
+        return new Promise((resolve, reject) => {
+            try {
+                if (typeof x !== 'number') throw new Error('Invalid input: x must be a number');
+                resolve(x + 1);
+            } catch (error) {
+                console.error('Error in addAsync:', error);
+                reject(error);
+            }
+        }).catch(error => {
+            console.error('Caught error in addAsync:', error);
+            throw error; // Re-throw the error after logging
+        });
+    };
+
+    const multiplyAsync = (x) => {
+        return new Promise((resolve, reject) => {
+            try {
+                if (typeof x !== 'number') throw new Error('Invalid input: x must be a number');
+                resolve(x * 2);
+            } catch (error) {
+                console.error('Error in multiplyAsync:', error);
+                reject(error);
+            }
+        }).catch(error => {
+            console.error('Caught error in multiplyAsync:', error);
+            throw error; // Re-throw the error after logging
+        });
+    };
+
+    // Retry mechanism for asynchronous functions
+    const retryAsync = (fn, retries = 3, delay = 1000) => {
+        return (...args) => {
+            return fn(...args).catch(error => {
+                if (retries > 0) {
+                    console.warn(`Retrying... (${retries} attempts left)`);
+                    return new Promise(resolve => setTimeout(resolve, delay))
+                        .then(() => retryAsync(fn, retries - 1, delay)(...args));
+                } else {
+                    console.error('Max retries reached. Throwing error.');
+                    throw error;
+                }
+            });
+        };
+    };
+
+    // Timeout handling for asynchronous functions
+    const withTimeout = (fn, timeout = 5000) => {
+        return (...args) => {
+            return Promise.race([
+                fn(...args),
+                new Promise((_, reject) => setTimeout(() => reject(new Error('Operation timed out')), timeout))
+            ]);
+        };
+    };
+
+    // Wrap the asynchronous functions with the retry mechanism and timeout handling
+    const addAsyncWithRetryAndTimeout = withTimeout(retryAsync(addAsync));
+    const multiplyAsyncWithRetryAndTimeout = withTimeout(retryAsync(multiplyAsync));
+
+    // Callback functions with error handling
+    const addCallback = (x, callback) => {
+        try {
+            if (typeof x !== 'number') throw new Error('Invalid input: x must be a number');
+            const result = x + 1;
+            callback(null, result);
+        } catch (error) {
+            callback(error);
+        }
+    };
+
+    const multiplyCallback = (x, callback) => {
+        try {
+            if (typeof x !== 'number') throw new Error('Invalid input: x must be a number');
+            const result = x * 2;
+            callback(null, result);
+        } catch (error) {
+            callback(error);
+        }
+    };
+
+    // Higher-order function to combine two functions
+    const combineFunctions = (f, g) => (x) => g(f(x));
+
+    // Function composition
+    const composedFunction = combineFunctions(add, multiply);
+
+    // Chaining synchronous functions
+    const chainedFunction = (x) => {
+        const result1 = add(x);
+        const result2 = multiply(result1);
+        return result2;
+    };
+
+    // Combining Promises with enhanced error handling
+    const combinedAsyncFunction = (x) => {
+        return addAsyncWithRetryAndTimeout(x)
+            .then(result1 => multiplyAsyncWithRetryAndTimeout(result1))
+            .catch(error => console.error('Error in combinedAsyncFunction:', error));
+    };
+
+    // Combining Callbacks with error handling
+    const combinedCallbackFunction = (x, finalCallback) => {
+        addCallback(x, (error, result1) => {
+            if (error) {
+                return finalCallback(error);
+            }
+            multiplyCallback(result1, (error, result2) => {
+                if (error) {
+                    return finalCallback(error);
+                }
+                finalCallback(null, result2);
+            });
+        });
+    };
+
+    // Functions to generate insights based on different historical figures
+    const newtonThoughts = async (question) => `Newton's thoughts on "${question}": Apply the laws of motion and gravitation.`;
+    const davinciInsights = async (question) => `Da Vinci's insights on "${question}": Embrace curiosity and interdisciplinary thinking.`;
+    const einsteinInsights = async (question) => `Einstein's insights on "${question}": Consider the theory of relativity and the nature of the universe.`;
+    const suntzuInsights = async (question) => `Sun Tzu's insights on "${question}": Apply strategic thinking and the principles of "The Art of War".`;
+    const gandhiInsights = async (question) => `Gandhi's insights on "${question}": Embrace nonviolence and ethical principles.`;
+    const adalovelaceInsights = async (question) => `Ada Lovelace's insights on "${question}": Consider the potential of computing and algorithms.`;
+
+    // Universal reasoning function
+    const universalReasoning = async (question) => {
+        const insights = await Promise.all([
+            newtonThoughts(question),
+            davinciInsights(question),
+            einsteinInsights(question),
+            suntzuInsights(question),
+            gandhiInsights(question),
+            adalovelaceInsights(question)
+        ]);
+        return insights.join('\n');
+    };
+
+    // Example usage
+    console.log('Composed Function:', composedFunction(5)); // Output: 12
+    console.log('Chained Function:', chainedFunction(5)); // Output: 12
+
+    combinedAsyncFunction(5).then(result => console.log('Combined Async Function:', result)).catch(error => console.error('Final error in combinedAsyncFunction:', error)); // Output: 12
+
+    combinedCallbackFunction(5, (error, result) => {
+        if (error) {
+            return console.error('Error in combinedCallbackFunction:', error);
+        }
+        console.log('Combined Callback Function:', result); // Output: 12
+    });
+
+    // Example usage of universal reasoning
+    const question = "What is the meaning of life?";
+    universalReasoning(question).then(insights => console.log('Universal Reasoning:', insights));
+})();
+
+
+=======
+(function () {
+    // Synchronous functions
+    const add = (x) => x + 1;
+    const multiply = (x) => x * 2;
+
+    // Enhanced error handling for asynchronous functions using Promises
+    const addAsync = (x) => {
+        return new Promise((resolve, reject) => {
+            try {
+                if (typeof x !== 'number') throw new Error('Invalid input: x must be a number');
+                resolve(x + 1);
+            } catch (error) {
+                console.error('Error in addAsync:', error);
+                reject(error);
+            }
+        }).catch(error => {
+            console.error('Caught error in addAsync:', error);
+            throw error; // Re-throw the error after logging
+        });
+    };
+
+    const multiplyAsync = (x) => {
+        return new Promise((resolve, reject) => {
+            try {
+                if (typeof x !== 'number') throw new Error('Invalid input: x must be a number');
+                resolve(x * 2);
+            } catch (error) {
+                console.error('Error in multiplyAsync:', error);
+                reject(error);
+            }
+        }).catch(error => {
+            console.error('Caught error in multiplyAsync:', error);
+            throw error; // Re-throw the error after logging
+        });
+    };
+
+    // Retry mechanism for asynchronous functions
+    const retryAsync = (fn, retries = 3, delay = 1000) => {
+        return (...args) => {
+            return fn(...args).catch(error => {
+                if (retries > 0) {
+                    console.warn(`Retrying... (${retries} attempts left)`);
+                    return new Promise(resolve => setTimeout(resolve, delay))
+                        .then(() => retryAsync(fn, retries - 1, delay)(...args));
+                } else {
+                    console.error('Max retries reached. Throwing error.');
+                    throw error;
+                }
+            });
+        };
+    };
+
+    // Timeout handling for asynchronous functions
+    const withTimeout = (fn, timeout = 5000) => {
+        return (...args) => {
+            return Promise.race([
+                fn(...args),
+                new Promise((_, reject) => setTimeout(() => reject(new Error('Operation timed out')), timeout))
+            ]);
+        };
+    };
+
+    // Wrap the asynchronous functions with the retry mechanism and timeout handling
+    const addAsyncWithRetryAndTimeout = withTimeout(retryAsync(addAsync));
+    const multiplyAsyncWithRetryAndTimeout = withTimeout(retryAsync(multiplyAsync));
+
+    // Callback functions with error handling
+    const addCallback = (x, callback) => {
+        try {
+            if (typeof x !== 'number') throw new Error('Invalid input: x must be a number');
+            const result = x + 1;
+            callback(null, result);
+        } catch (error) {
+            callback(error);
+        }
+    };
+
+    const multiplyCallback = (x, callback) => {
+        try {
+            if (typeof x !== 'number') throw new Error('Invalid input: x must be a number');
+            const result = x * 2;
+            callback(null, result);
+        } catch (error) {
+            callback(error);
+        }
+    };
+
+    // Higher-order function to combine two functions
+    const combineFunctions = (f, g) => (x) => g(f(x));
+
+    // Function composition
+    const composedFunction = combineFunctions(add, multiply);
+
+    // Chaining synchronous functions
+    const chainedFunction = (x) => {
+        const result1 = add(x);
+        const result2 = multiply(result1);
+        return result2;
+    };
+
+    // Combining Promises with enhanced error handling
+    const combinedAsyncFunction = (x) => {
+        return addAsyncWithRetryAndTimeout(x)
+            .then(result1 => multiplyAsyncWithRetryAndTimeout(result1))
+            .catch(error => console.error('Error in combinedAsyncFunction:', error));
+    };
+
+    // Combining Callbacks with error handling
+    const combinedCallbackFunction = (x, finalCallback) => {
+        addCallback(x, (error, result1) => {
+            if (error) {
+                return finalCallback(error);
+            }
+            multiplyCallback(result1, (error, result2) => {
+                if (error) {
+                    return finalCallback(error);
+                }
+                finalCallback(null, result2);
+            });
+        });
+    };
+
+    // Functions to generate insights based on different historical figures
+    const newtonThoughts = async (question) => `Newton's thoughts on "${question}": Apply the laws of motion and gravitation.`;
+    const davinciInsights = async (question) => `Da Vinci's insights on "${question}": Embrace curiosity and interdisciplinary thinking.`;
+    const einsteinInsights = async (question) => `Einstein's insights on "${question}": Consider the theory of relativity and the nature of the universe.`;
+    const suntzuInsights = async (question) => `Sun Tzu's insights on "${question}": Apply strategic thinking and the principles of "The Art of War".`;
+    const gandhiInsights = async (question) => `Gandhi's insights on "${question}": Embrace nonviolence and ethical principles.`;
+    const adalovelaceInsights = async (question) => `Ada Lovelace's insights on "${question}": Consider the potential of computing and algorithms.`;
+
+    // Universal reasoning function
+    const universalReasoning = async (question) => {
+        const insights = await Promise.all([
+            newtonThoughts(question),
+            davinciInsights(question),
+            einsteinInsights(question),
+            suntzuInsights(question),
+            gandhiInsights(question),
+            adalovelaceInsights(question)
+        ]);
+        return insights.join('\n');
+    };
+
+    // Example usage
+    console.log('Composed Function:', composedFunction(5)); // Output: 12
+    console.log('Chained Function:', chainedFunction(5)); // Output: 12
+
+    combinedAsyncFunction(5).then(result => console.log('Combined Async Function:', result)).catch(error => console.error('Final error in combinedAsyncFunction:', error)); // Output: 12
+
+    combinedCallbackFunction(5, (error, result) => {
+        if (error) {
+            return console.error('Error in combinedCallbackFunction:', error);
+        }
+        console.log('Combined Callback Function:', result); // Output: 12
+    });
+
+    // Example usage of universal reasoning
+    const question = "What is the meaning of life?";
+    universalReasoning(question).then(insights => console.log('Universal Reasoning:', insights));
+})();
+
+
+>>>>>>> 15b9ee2ee2931a43c5ec86ae50651f777b149473

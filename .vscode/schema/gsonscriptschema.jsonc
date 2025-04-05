@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "gsonscriptschema.json",
+  "title": "Geometris GSON",
+  "description": "Specifies scripting json for GSON interpreter.",
+
+  "type": "object",
+  "additionalProperties": false,
+
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+
+    // main function. a set of commands run each time an event occurs.
+    "main": {
+      "title": "Main Function",
+      "description": "The main function is invoked whenever the device enqueues an event. It consists of a list of commands, such that the interpreter will evaluate the conditions of each command and execute its functions.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/command"
+      }
+    }
+  },
+
+  "definitions": {
+    "command": {
+      "type": "object",
+      "properties": {
+        "condition": {
+          "type": "string"
+        },
+        "function": {
+          "type": "string"
+        }
+      },
+      "required": ["condition", "function"]
+    }
+  }
+}

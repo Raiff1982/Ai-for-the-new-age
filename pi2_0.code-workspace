@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "fileupload-iinputisneeded",
+			"uri": "azurestorage:/fileupload-iinputisneeded?resourceId=/attachedStorageAccounts/pibrain/Blob Containers/fileupload-iinputisneeded"
+		}
+	],
+	"settings": {
+		"azureResourceGroups.showHiddenTypes": true,
+<<<<<<< HEAD
+		"editor.quickSuggestions": false,
+=======
+		"editor.quickSuggestions": {
+			"comments": "off",
+			"strings": "off",
+			"other": "off"
+		},
+>>>>>>> 15b9ee2ee2931a43c5ec86ae50651f777b149473
+		"yaml.customTags": [
+			"!upload scalar",
+			"!remove scalar",
+			"!keep scalar",
+			"!erase scalar",
+			"!jwt scalar"
+		],
+		"yaml.schemas": {
+			"https://raw.githubusercontent.com/doanthuanthanh88/testapi6/main/schema.json": "*.yaml"
+		}
+	}
+}

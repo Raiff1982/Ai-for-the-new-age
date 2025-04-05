@@ -1,0 +1,38 @@
+E - G - C - E - G - C - E - G
+D - F - B - D - F - B - D - F
+C - E - A - C - E - A - C - E
+D - F - B - D - F - B - D - F
+E - G - C - E - G - C - E - G
+
+
+
+C - E - G - C - E - G - C - E
+G - B - D - G - B - D - G - B
+C - E - G - C - E - G - C - E
+G - B - D - G - B - D - G - B
+C - E - G - C - E - G - C - E
+Here is a complex piano piece with the specified fingerings (3 for left hand and 5 for right hand):
+
+Title: "Complex Melody in C"
+
+Right Hand (5):
+
+
+E - G - C - E - G - C - E - G
+D - F - B - D - F - B - D - F
+C - E - A - C - E - A - C - E
+D - F - B - D - F - B - D - F
+E - G - C - E - G - C - E - G
+Left Hand (3):
+
+
+C - E - G - C - E - G - C - E
+G - B - D - G - B - D - G - B
+C - E - G - C - E - G - C - E
+G - B - D - G - B - D - G - B
+C - E - G - C - E - G - C - E
+Fingerings:
+
+Right Hand: Use finger 5 for all notes.
+Left Hand: Use finger 3 for all notes.
+This piece incorporates harmonies, extended chords, and dynamic variations to create a more intricate and challenging composition. Enjoy playing!

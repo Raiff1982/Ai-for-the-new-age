@@ -1,0 +1,190 @@
+{
+  "bot": {
+    "name": "MyBot",
+    "description": "A bot that uses Azure OpenAI for generating responses and includes various utility functions for sentiment analysis, ethical decision-making, and more.",
+    "functions": [
+      {
+        "name": "preprocess_data",
+        "description": "Preprocesses the data from a given file path.",
+        "parameters": {
+          "file_path": "str"
+        }
+      },
+      {
+        "name": "enhance_context_awareness",
+        "description": "Enhances context awareness by analyzing the user's environment, activities, and emotional state.",
+        "parameters": {
+          "user_id": "str",
+          "text": "str"
+        }
+      },
+      {
+        "name": "proactive_learning",
+        "description": "Encourages proactive learning by seeking feedback and exploring new topics.",
+        "parameters": {
+          "user_id": "str",
+          "feedback": "str"
+        }
+      },
+      {
+        "name": "ethical_decision_making",
+        "description": "Integrates ethical principles into decision-making processes.",
+        "parameters": {
+          "user_id": "str",
+          "decision": "str"
+        }
+      },
+      {
+        "name": "emotional_intelligence",
+        "description": "Develops emotional intelligence by recognizing and responding to user emotions.",
+        "parameters": {
+          "user_id": "str",
+          "text": "str"
+        }
+      },
+      {
+        "name": "transparency_and_explainability",
+        "description": "Enables transparency by explaining the reasoning behind decisions.",
+        "parameters": {
+          "user_id": "str",
+          "decision": "str"
+        }
+      },
+      {
+        "name": "on_message_activity",
+        "description": "Handles incoming messages and generates responses.",
+        "parameters": {
+          "turn_context": "TurnContext"
+        }
+      },
+      {
+        "name": "generate_response",
+        "description": "Generates a response using Azure OpenAI's API.",
+        "parameters": {
+          "text": "str",
+          "user_id": "str"
+        }
+      },
+      {
+        "name": "newton_thoughts",
+        "description": "Applies Newton's laws to the given question.",
+        "parameters": {
+          "question": "str"
+        }
+      },
+      {
+        "name": "davinci_insights",
+        "description": "Generates insights like Da Vinci for the given question.",
+        "parameters": {
+          "question": "str"
+        }
+      },
+      {
+        "name": "human_intuition",
+        "description": "Provides human intuition for the given question.",
+        "parameters": {
+          "question": "str"
+        }
+      },
+      {
+        "name": "neural_network_thinking",
+        "description": "Applies neural network thinking to the given question.",
+        "parameters": {
+          "question": "str"
+        }
+      },
+      {
+        "name": "quantum_computing_thinking",
+        "description": "Applies quantum computing principles to the given question.",
+        "parameters": {
+          "question": "str"
+        }
+      },
+      {
+        "name": "resilient_kindness",
+        "description": "Provides perspectives of resilient kindness.",
+        "parameters": {
+          "question": "str"
+        }
+      },
+      {
+        "name": "identify_and_refute_fallacies",
+        "description": "Identifies and refutes common logical fallacies in the argument.",
+        "parameters": {
+          "argument": "str"
+        }
+      },
+      {
+        "name": "universal_reasoning",
+        "description": "Generates a comprehensive response using various reasoning methods.",
+        "parameters": {
+          "question": "str"
+        }
+      },
+      {
+        "name": "stream_thread_responses",
+        "description": "Streams thread responses from Azure OpenAI.",
+        "parameters": {
+          "thread_id": "str",
+          "assistant_id": "str"
+        }
+      },
+      {
+        "name": "chat_completion_request",
+        "description": "Makes a chat completion request to Azure OpenAI.",
+        "parameters": {
+          "messages": "list",
+          "model": "str"
+        }
+      },
+      {
+        "name": "get_internet_answer",
+        "description": "Gets an answer from the internet using chat completion request.",
+        "parameters": {
+          "question": "str"
+        }
+      },
+      {
+        "name": "reflect_on_decisions",
+        "description": "Regularly reflects on decisions, the processes used, the information considered, and the perspectives that may have been missed.",
+        "parameters": {}
+      },
+      {
+        "name": "process_questions_from_json",
+        "description": "Processes questions from a JSON file and calls the appropriate functions.",
+        "parameters": {
+          "file_path": "str"
+        }
+      },
+      {
+        "name": "get_weather",
+        "description": "Fetches the weather for a given location.",
+        "parameters": {
+          "location": "str"
+        }
+      },
+      {
+        "name": "get_latest_news",
+        "description": "Fetches the latest news headlines.",
+        "parameters": {}
+      },
+      {
+        "name": "get_stock_price",
+        "description": "Fetches the latest stock price for a given symbol.",
+        "parameters": {
+          "symbol": "str"
+        }
+      },
+      {
+        "name": "translate_text",
+        "description": "Translates text to a specified language.",
+        "parameters": {
+          "text": "str",
+          "dest_language": "str"
+        }
+      }
+    ]
+  }
+}
+```
+

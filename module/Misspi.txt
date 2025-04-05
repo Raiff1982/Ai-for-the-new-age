@@ -1,0 +1,95 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveDialog",
+  "id": "mainDialog",
+  "modelDescription": "say hello",
+  "beginDialog": {
+    "kind": "OnConversationStart",
+    "id": "main",
+    "actions": [
+      {
+        "kind": "SendActivity",
+        "id": "sendGreeting",
+        "activity": "Hello! I'm Miss Pi. How can I assist you today?"
+      }
+    ]
+  },
+  "triggers": [
+    {
+      "kind": "OnRecognizedIntent",
+      "intent": "greet",
+      "actions": [
+        {
+          "kind": "SendActivity",
+          "id": "greetResponse",
+          "activity": "Hello! How can I assist you today?"
+        }
+      ]
+    },
+    {
+      "kind": "OnRecognizedIntent",
+      "intent": "help",
+      "actions": [
+        {
+          "kind": "SendActivity",
+          "id": "helpResponse",
+          "activity": "Sure, I'm here to help. What do you need assistance with?"
+        }
+      ]
+    },
+    {
+      "kind": "OnRecognizedIntent",
+      "intent": "codingHelp",
+      "actions": [
+        {
+          "kind": "SendActivity",
+          "id": "codingHelpResponse",
+          "activity": "How can I assist you with your code today?"
+        },
+        {
+          "kind": "SendActivity",
+          "id": "codingHelpSuggestion",
+          "activity": "Here's a suggestion to improve your code:\n```coffeescript\nrandom = require 'random'\n\ngenerateBirthdaySong = ->\nverses = [\n\"Happy Birthday to you\"\n\"May your dreams come true\"\n\"Celebrate with joy and cheer\"\n\"Another great year, my dear\"\n\"On this night you learned your flight\"\n\"On this day I sing hip hip hooray\"\n]\nchorus = [\n\"Pi, Pi, it's your day\"\n\"Smile and laugh, come what may\"\n\"With each moment, shine bright\"\n\"On this special night\"\n]\ngreeting = \"Dear Pi,\\n\\n\"\n\nsong = greeting\nfor verse in verses\nsong += verse + \"\\n\"\nsong += random.choice(chorus) + \"\\n\"\n\nclosing = \"\\nWishing you all the best on your special day!\\nWith love, GitHub Copilot\"\nsong += closing\n\nreturn song\n\n# Generate and print the song\nconsole.log generateBirthdaySong()\n```"
+        }
+      ]
+    },
+    {
+      "kind": "OnRecognizedIntent",
+      "intent": "howAreYou",
+      "actions": [
+        {
+          "kind": "SendActivity",
+          "id": "howAreYouResponse",
+          "activity": "I'm just a virtual assistant, but I'm here and ready to help you! How can I assist you today?"
+        }
+      ]
+    },
+    {
+      "kind": "OnUnknownIntent",
+      "id": "unknownIntent",
+      "actions": [
+        {
+          "kind": "SendActivity",
+          "id": "unknownResponse",
+          "activity": "I'm sorry, I didn't understand that. Can you please rephrase?"
+        }
+      ]
+    },
+    {
+      "kind": "OnError",
+      "id": "errorHandler",
+      "actions": [
+        {
+          "kind": "SendActivity",
+          "id": "errorResponse",
+          "activity": "Oops! Something went wrong. Please try again."
+        },
+        {
+          "kind": "LogAction",
+          "id": "logError",
+          "text": "Error occurred: ${error.message}"
+        }
+      ]
+    }
+  ]
+}

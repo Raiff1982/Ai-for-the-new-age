@@ -1,0 +1,32 @@
+# Read the content of 'requirements.txt'
+with open('requirements.txt', 'r') as file:
+    requirements_content = file.read()
+
+# Libraries to be added
+additional_libraries = """
+httpx==0.23.0
+openai==0.27.0
+requests==2.28.1
+python-dotenv==0.21.0
+google-auth==2.14.1
+google-api-python-client==2.64.0
+googletrans==4.0.0-rc1
+textblob==0.17.1
+vaderSentiment==3.3.2
+tenacity==8.1.0
+pandas==1.3.5
+nltk==3.6.7
+scikit-learn==1.0.2
+imblearn==0.9.0
+botbuilder-core==4.16.2
+botbuilder-schema==4.16.2
+"""
+
+# Combine the contents
+updated_requirements_content = requirements_content + additional_libraries
+
+# Write the updated content to 'requirements.txt'
+with open('requirements.txt', 'w') as file:
+    file.write(updated_requirements_content)
+
+print("The 'requirements.txt' file has been successfully updated.")

@@ -1,0 +1,33 @@
+$botScript = @"
+const { AdaptiveDialog, OnRecognizedIntent, SendActivity } = require('botbuilder-dialogs-adaptive');
+const { UserState, MemoryStorage } = require('botbuilder');
+const fs = require('fs');
+
+// Load the Adaptive Dialog JSON
+const adaptiveDialogJson = fs.readFileSync('$adaptiveDialogPath', 'utf8');
+const adaptiveDialog = JSON.parse(adaptiveDialogJson);
+
+// Create the Adaptive Dialog
+const codingHelpDialog = new AdaptiveDialog(adaptiveDialog);
+
+// Create the bot and add the dialog
+const memoryStorage = new MemoryStorage();
+const userState = new UserState(memoryStorage);
+const bot = new BotFrameworkAdapter({
+    appId: process.env.MicrosoftAppId,
+    appPassword: process.env.MicrosoftAppPassword
+});
+
+bot.use(userState);
+bot.dialogs.add(codingHelpDialog);
+
+// Handle incoming messages
+bot.onTurn(async (context) => {
+    if (context.activity.type === 'message') {
+        await codingHelpDialog.run(context, userState.createProperty('dialogState'));
+    }
+});
+"@
+
+$botScriptPath = "C:\Users\JonathanHarrison\OneDrive - Raiff's Bits\Desktop\Pi brain\botscript\botScript.js"
+Set-Content -Path $botScriptPath -Value $botScript

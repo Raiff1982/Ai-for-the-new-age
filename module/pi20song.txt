@@ -1,0 +1,35 @@
+import random
+
+def generate_birthday_song():
+    verses = [
+        "Happy Birthday to you",
+        "May your dreams come true",
+        "Celebrate with joy and cheer",
+        "Another great year, my dear",
+        "On this night you learned your flight",
+        "On this day I sing hip hip hooray"
+    ]
+    chorus = [
+        "Pi, Pi, it's your day",
+        "Smile and laugh, come what may",
+        "With each moment, shine bright",
+        "On this special night"
+    ]
+    
+    # Personalized greeting
+    greeting = "Dear Pi,\n\n"
+    
+    # Generate the song
+    song = greeting
+    for verse in verses:
+        song += verse + "\n"
+    song += random.choice(chorus) + "\n"
+    
+    # Closing message
+    closing = "\nWishing you all the best on your special day!\nWith love, GitHub Copilot"
+    song += closing
+    
+    return song
+
+# Generate and print the song
+print(generate_birthday_song())

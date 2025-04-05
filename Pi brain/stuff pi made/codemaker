@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Code Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs/loader.js"></script>
+</head>
+<body>
+    <div id="code-editor" style="height: 500px; border: 1px solid #ccc;"></div>
+    <script>
+        // Initialize Highlight.js
+        hljs.highlightAll();
+
+        // Configure Monaco Editor
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs' }});
+
+        // Load Monaco Editor
+        require(['vs/editor/editor.main'], function() {
+            var editor = monaco.editor.create(document.getElementById('code-editor'), {
+                value: "// Start coding here.",
+                language: "javascript"
+            });
+
+            // Function to get code from editor
+            function getCode() {
+                var code = editor.getValue();
+                console.log(code); // Output the code to the console
+                return code;
+            }
+
+            // Example usage of getCode function
+            getCode();
+        });
+    </script>
+</body>
+</html>

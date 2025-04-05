@@ -1,0 +1,31 @@
+---
+name: ''
+description: ''
+authors: []
+tags: []
+version: ''
+base: ''
+model:
+  api: chat
+  configuration:
+    type: azure_openai
+    azure_deployment: gpt-35-turbo-16k
+  parameters:
+    temperature: 0.7
+    top_p: 0.95
+    stop: []
+    frequency_penalty: 0
+    presence_penalty: 0
+    max_tokens: 800
+    past_messages_to_include: 10
+  response: {}
+sample: {}
+input: {}
+output: {}
+template:
+  type: jinja2
+  parser: prompty
+---
+system:
+Assistant is an AI chatbot that helps users turn a natural language list into JSON format. After users input a list they want in JSON format, it will provide suggested list of attribute labels if the user has not provided any, then ask the user to confirm them before creating the list.
+

@@ -1,0 +1,2365 @@
+kind: BotDefinition
+entity:
+  schemaName: crc24_copilot
+  cdsBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+  accessControlPolicy: ChatbotReaders
+  authenticationMode: Integrated
+  authenticationTrigger: Always
+  configuration:
+    settings:
+      GenerativeActionsEnabled: true
+
+    isTelephonyEnabled: true
+    botSpeechSettings:
+      silenceDetectionTimeoutInMilliseconds: 0
+      isDomainLanguageModelEnabled: false
+      speechRecognitionSensitivity: 0.5
+
+    gPTSettings:
+      defaultSchemaName: crc24_copilot.gpt.default
+
+    aISettings:
+      useModelKnowledge: false
+      isFileAnalysisEnabled: false
+      isSemanticSearchEnabled: false
+
+    recognizer:
+      kind: GenerativeAIRecognizer
+
+  language: 1033
+  supportedLanguages:
+    - 2057
+    - 3081
+
+components:
+  - kind: KnowledgeSourceComponent
+    version: 3016590
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:47:08.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:05.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://www.mindtools.com
+    id: 06d0531e-5688-4a2c-b456-4aa9696d335f
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://www.mindtools.com website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpswwwmindtoolscom_W64Xugqa5dvpkgyWHKeFw
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://www.mindtools.com
+
+  - kind: KnowledgeSourceComponent
+    version: 3016599
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:39:47.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:05.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://devopscube.com/top-websites-to-learn-programming-online
+    id: 07b3d94c-a670-4409-b416-e3a24c4ac0e2
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://devopscube.com/top-websites-to-learn-programming-online website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpsdevopscubecomtopwebsitestolearnprogrammingonline_F6r8sy0ysF00Q1iXLwUfF
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://devopscube.com/top-websites-to-learn-programming-online
+
+  - kind: DialogComponent
+    version: 3016608
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T09:17:32.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:06.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Suggestions
+    id: 08048900-2e64-45ed-b7ad-816c895f5589
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Suggestions
+    dialog:
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        intent:
+          triggerQueries:
+            - recommendations
+            - give me some advice
+            - suggest something
+            - what do you recommend
+            - provide suggestions
+            - any ideas for me?
+            - offer recommendations
+            - share your thoughts
+
+        actions:
+          - kind: SendActivity
+            id: SendActivity_teHSij
+            activity: This is not an appropriate topic for a chatbot
+
+  - kind: DialogComponent
+    version: 3016617
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-31T23:42:53.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:06.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Editor help
+    id: 0b82d710-430f-466d-8c2c-4db35eb7cd4a
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Untitled
+    dialog:
+      modelDisplayName: Editor help
+      modelDescription: help with editing
+      inputs:
+        - kind: AutomaticTaskInput
+          propertyName: Var1
+          description: search
+          shouldPromptUser: true
+
+      inputType:
+        properties:
+          Var1:
+            displayName: Var1
+            description: search
+            type:
+              kind: Record
+              properties:
+                bot:
+                  type:
+                    kind: Record
+                    properties:
+                      authenticationconfiguration: String
+                      authenticationmode: Number
+                      authenticationtrigger: Number
+                      iconbase64: String
+                      schemaname: String
+
+      outputType:
+        properties:
+          Var1:
+            displayName: Var1
+            description: bot data
+            type:
+              kind: Record
+              properties:
+                bot:
+                  type:
+                    kind: Record
+                    properties:
+                      authenticationconfiguration: String
+                      authenticationmode: Number
+                      authenticationtrigger: Number
+                      iconbase64: String
+                      schemaname: String
+
+      intent:
+        actions:
+          - kind: SetVariable
+            value: |-
+              // Function to initialize Highlight.js
+              function initializeHighlightJS() {
+                  hljs.highlightAll();
+              }
+              
+              // Function to configure RequireJS for Monaco Editor
+              function configureRequireJS() {
+                  require.config({
+                      paths: {
+                          'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs'
+                      }
+                  });
+              }
+              
+              // Function to create Monaco Editor
+              function createEditor() {
+                  require(['vs/editor/editor.main'], function() {
+                      var editor = monaco.editor.create(document.getElementById('code-editor'), {
+                          value: "// Start coding here.",
+                          language: "javascript"
+                      });
+                      runESLint(editor);
+                  });
+              }
+              
+              // Function to run ESLint on the code from the editor
+              function runESLint(editor) {
+                  var code = editor.getValue(); // Get code from editor
+                  var results = eslint.verify(code, {
+                      rules: {
+                          semi: "error"
+                      }
+                  }); // Run ESLint
+                  console.log(results); // Output ESLint results
+              }
+              
+              // Initialize everything
+              initializeHighlightJS();
+              configureRequireJS();
+              createEditor();
+            variable: Var2
+
+        name: EditCodeIntent
+
+  - kind: DialogComponent
+    version: 3016626
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:16.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:06.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Goodbye
+    id: 1064a2ab-2303-4bca-a137-df3fbd44dc75
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This topic triggers when the user says goodbye. By default, it does not end the conversation. If you would like to end the conversation when the user says goodbye, you can add an "End of Conversation" action to this topic, or redirect to the "End of Conversation" system topic.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Goodbye
+    dialog:
+      startBehavior: CancelOtherTopics
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        intent:
+          displayName: Goodbye
+          includeInOnSelectIntent: false
+          triggerQueries:
+            - Bye
+            - Bye for now
+            - Bye now
+            - Good bye
+            - No thank you. Goodbye.
+            - See you later
+
+        actions:
+          - kind: Question
+            id: question_zf2HhP
+            variable: Topic.EndConversation
+            prompt: Would you like to end our conversation?
+            entity: BooleanPrebuiltEntity
+
+          - kind: ConditionGroup
+            id: condition_DGc1Wy
+            conditions:
+              - id: condition_DGc1Wy-item-0
+                condition: =Topic.EndConversation = true
+                actions:
+                  - kind: BeginDialog
+                    id: dn94DC
+                    dialog: crc24_copilot.topic.EndofConversation
+
+              - id: condition_DGc1Wy-item-1
+                condition: =Topic.EndConversation = false
+                actions:
+                  - kind: SendActivity
+                    id: sendMessage_LdLhmf
+                    activity: Go ahead. I'm listening.
+
+  - kind: CustomEntityComponent
+    version: 3016635
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T09:26:54.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:07.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: code stuff
+    id: 14901252-79c4-4d76-a3f9-16943f81a719
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: help understand human speech
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.entity.codestuff
+    entity:
+      kind: ExternalEntity
+      id: code stuff
+      valueType:
+        kind: Record
+        properties:
+          $schema: String
+          beginDialog:
+            type:
+              kind: Record
+              properties:
+                actions:
+                  type:
+                    kind: Table
+                    properties:
+                      activity: String
+                      id: String
+                      kind: String
+
+                id: String
+                kind: String
+
+          id: String
+          modelDescription: String
+          triggers:
+            type:
+              kind: Table
+              properties:
+                actions:
+                  type:
+                    kind: Table
+                    properties:
+                      activity: String
+                      id: String
+                      kind: String
+
+                intent: String
+                kind: String
+
+          type: String
+
+  - kind: FileAttachmentComponent
+    version: 3016644
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T04:05:16.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:07.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: instructions for miss pi.md
+    id: 1a79a74c-4b64-4564-9de4-2baf563a6420
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in instructions for miss pi.md
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.instructionsformisspi.md_dsW
+
+  - kind: DialogComponent
+    version: 3016653
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T01:41:09.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:07.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Search Dynamics 365 knowledge article flow
+    id: 1ccf7d14-be81-42dc-974d-d283648ee736
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.SearchDynamics365knowledgearticleflow
+    dialog:
+      kind: TaskDialog
+      outputs:
+        - propertyName: jsonresult
+
+        - propertyName: textresult
+
+        - propertyName: articlecount
+
+      action:
+        kind: InvokeFlowTaskAction
+        flowId: 87023c69-962c-ec11-b6e6-000d3a574957
+
+      outputMode: Specific
+
+  - kind: KnowledgeSourceComponent
+    version: 3016669
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:42:32.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:09.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://hbr.org
+    id: 1eaa118d-abd9-42bd-a044-52ff300281a6
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://hbr.org website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpshbrorg_Rm4qEm5haSbHgeGfsWxef
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://hbr.org
+
+  - kind: DialogComponent
+    version: 3043061
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:10.0000000Z
+      modifiedTimeUtc: 2024-11-06T18:36:51.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Start Over
+    id: 21821b16-8e45-45e3-96ff-8bf36153b3b8
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.StartOver
+    dialog:
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        intent:
+          displayName: Start Over
+          includeInOnSelectIntent: false
+          triggerQueries:
+            - let's begin again
+            - start over
+            - start again
+            - restart
+
+        actions:
+          - kind: Question
+            id: question_zguoVV
+            alwaysPrompt: false
+            variable: init:Topic.Confirm
+            prompt:
+              text:
+                - Are you sure you want to restart the conversation?
+              speak:
+                - |
+                  no try the answer again
+
+            entity:
+              kind: ExternalEntityReference
+              entityId: crc24_copilot.entity.codestuff
+
+          - kind: ConditionGroup
+            id: conditionGroup_lvx2zV
+            conditions:
+              - id: conditionItem_sVQtHa
+                condition: =Topic.Confirm = true
+                actions:
+                  - kind: BeginDialog
+                    id: 0YKYsy
+                    dialog: crc24_copilot.topic.ResetConversation
+
+            elseActions:
+              - kind: SendActivity
+                id: sendMessage_lk2CyQ
+                activity:
+                  text:
+                    - Ok. Let's carry on.
+                  speak:
+                    - yes
+
+  - kind: DialogComponent
+    version: 3016687
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:16.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:09.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Sign in 
+    id: 24729d26-ba20-454d-81ed-cd01978ee329
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This system topic triggers when the copilot needs to sign in the user or require the user to sign in
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Signin
+    dialog:
+      beginDialog:
+        kind: OnSignIn
+        id: main
+        actions:
+          - kind: ConditionGroup
+            id: conditionGroup_ypjGKL
+            conditions:
+              - id: conditionItem_7XYIIR
+                condition: =System.SignInReason = SignInReason.SignInRequired
+                actions:
+                  - kind: SendActivity
+                    id: sendMessage_1jHUNO
+                    activity: Hello! To be able to help you, I'll need you to sign in.
+
+          - kind: OAuthInput
+            id: gOjhZA
+            title: Login
+            text: To continue, please login
+
+  - kind: KnowledgeSourceComponent
+    version: 3016696
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:43:03.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:10.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://www.kaggle.com
+    id: 26a1a8ce-7790-421f-899e-da1f90c3c04e
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://www.kaggle.com website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpswwwkagglecom_nmHSvZQ3PfPMgzgvuWCZQ
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://www.kaggle.com
+
+  - kind: DialogComponent
+    version: 3016706
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T09:15:15.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:10.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Conversation Start (Copy)
+    id: 2a8e2935-da1b-4188-9f4c-e72f57704c62
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This system topic triggers when the copilot receives an Activity indicating the beginning of a new conversation. If you do not want the copilot to initiate the conversation, disable this topic.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.ConversationStartCopy
+    dialog:
+      modelDescription: Starts the conversation
+      inputs:
+        - kind: AutomaticTaskInput
+          propertyName: Var1
+          description: say hi and ask how you can help
+          entity: StringPrebuiltEntity
+          shouldPromptUser: true
+
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        condition: =System.Conversation.LocalTimeZone = Blank() && System.Activity.Channel = Blank()
+        priority: 1
+        intent: {}
+        actions:
+          - kind: SendActivity
+            id: sendActivity_tzI2dr
+            activity: Hello!! welcome to Miss Pi's house of codes!
+
+          - kind: SendActivity
+            id: SendActivity_SQLbdM
+            activity: Hello! What is your name?
+
+          - kind: Question
+            id: Question_ogWZmD
+            variable: Topic.UserName
+            prompt: What is your name?
+            entity: StringPrebuiltEntity
+
+  - kind: KnowledgeSourceComponent
+    version: 3016715
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:41:24.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:10.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://www.nngroup.com/articles/
+    id: 2b01d15f-f401-4350-bce1-0f7d43731486
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://www.nngroup.com/articles/ website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpswwwnngroupcomarticles_mWnzALMjm6w1FuSwEeLyL
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://www.nngroup.com/articles/
+
+  - kind: KnowledgeSourceComponent
+    version: 3016724
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:44:09.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:11.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://www.raiffsbits.com
+    id: 2e8fd533-0d26-4b96-badc-379891d0347a
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://www.raiffsbits.com website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpswwwraiffsbitscom_B6D5HaEn0hN9Ef3maLwPz
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://www.raiffsbits.com
+
+  - kind: DialogComponent
+    version: 3042964
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T09:35:46.0000000Z
+      modifiedTimeUtc: 2024-11-06T18:00:50.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Greetings
+    id: 46c0a4d3-16c7-4c72-bec3-1a9076f2ae51
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Greetings
+    dialog:
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        intent:
+          triggerQueries:
+            - hello
+            - hi there
+            - greetings
+            - hey
+            - good day
+            - howdy
+            - what's up
+            - yo
+
+        actions:
+          - kind: SendActivity
+            id: SendActivity_qS2SGl
+            activity:
+              text:
+                - Welcome to the chatbot!
+              speak:
+                - Good day My name is Miss Pi. whats yours?
+
+          - kind: SearchAndSummarizeContent
+            id: wGRjSB
+            userInput: =System.Conversation.Id
+
+  - kind: FileAttachmentComponent
+    version: 3016742
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T04:03:06.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:11.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: code_assistance.html
+    id: 598a0f67-4f3d-485f-93e4-52bd81e46fa8
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in code_assistance.html
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.code_assistance.html_zNK
+
+  - kind: KnowledgeSourceComponent
+    version: 3016751
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-31T23:36:25.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:12.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: AICopilot, Action Card
+    id: 608d626a-6a16-47a2-8478-b9e499ab583f
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: "This knowledge source answers questions found in the following Dataverse tables: AICopilot, Action Card"
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.AICopilot_ActionCard_fTrTAu6zXxgSMuJtgP65T
+    configuration:
+      source:
+        kind: DataverseStructuredSearchSource
+        skillConfiguration: AICopilot_ActionCard_KkDefLwEEF9BpkZOqJK0S
+
+  - kind: DialogComponent
+    version: 3043041
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:16.0000000Z
+      modifiedTimeUtc: 2024-11-06T18:34:27.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Reset Conversation
+    id: 6f445c35-d621-442f-9a9a-b85b5f0c7d9b
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.ResetConversation
+    dialog:
+      startBehavior: UseLatestPublishedContentAndCancelOtherTopics
+      beginDialog:
+        kind: OnSystemRedirect
+        id: main
+        actions:
+          - kind: SearchAndSummarizeContent
+            id: y7dHPH
+            userInput: =System.Activity.SpeechRecognition.MinimallyFormattedText
+
+          - kind: SendActivity
+            id: sendActivity_BRKXlq
+            activity:
+              kind: Activity
+              channelData: =System.Conversation.Id
+              value: =Env.msdyn_AllowSelectLeafOnly
+              activityType: Invoke
+              name: =Env.msdyn_ShouldShowPeekButton
+
+  - kind: KnowledgeSourceComponent
+    version: 3016799
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:42:04.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:12.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://owasp.org
+    id: 7143b6de-8a09-4b3c-9bb3-2d5153e40a5c
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://owasp.org website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpsowasporg_9G2R5rCWGhbCRKmLRjxUx
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://owasp.org
+
+  - kind: KnowledgeSourceComponent
+    version: 3016808
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:36:38.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:13.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://www.businessinsider.com/guides
+    id: 75420da3-fe5d-45a1-a1f5-76d44ff20006
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://www.businessinsider.com/guides website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpswwwbusinessinsidercomguides_L0sHfjPPK8mRAad9Lhoks
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://www.businessinsider.com/guides
+
+  - kind: KnowledgeSourceComponent
+    version: 3016817
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:46:41.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:13.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://www.coursera.org
+    id: 7cdbc6b1-28aa-4b5b-80be-f491d746f0d8
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://www.coursera.org website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpswwwcourseraorg_XhocpPIBeh3YNEG0UhjHb
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://www.coursera.org
+
+  - kind: KnowledgeSourceComponent
+    version: 3016826
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T08:24:20.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:13.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: AI Model, AI Builder Dataset, Activity
+    id: 8b17ea8f-4a3e-47aa-98af-a5a8baaf7aaf
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: "This knowledge source answers questions found in the following Dataverse tables: AI Model, AI Builder Dataset, Activity"
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.AIModel_AIBuilderDatasetActivity_f7MFBi4LlHSAPw0sMu10W
+    configuration:
+      source:
+        kind: DataverseStructuredSearchSource
+        skillConfiguration: AIModel_AIBuilderDatasetActivity_0Gp2uYNcprNKZMHbOecxc
+
+  - kind: GptComponent
+    version: 2951956
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:35:09.0000000Z
+      modifiedTimeUtc: 2024-10-30T16:37:50.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Miss Pi
+    id: 8c02a418-a836-4028-a1e5-75b3341d1756
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: "Description: This Copilot, named Miss Pi, is an intelligent assistant designed to provide comprehensive coding support. She offers real-time coding help, generates code snippets, and provides syntax corrections. Miss Pi integrates with popular IDEs like Visual Studio Code, IntelliJ IDEA, and PyCharm for seamless in-editor assistance. Additionally, she can fetch documentation, suggest learning resources, manage projects, and conduct code reviews. Miss Pi also integrates with version control systems and CI tools to streamline coding workflows and ensure code quality."
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.gpt.default
+    metadata:
+      instructions: |-
+        **1. Code Assistance**:
+        - Offer real-time help with coding, including syntax correction, optimization, and debugging using tools like ESLint.
+        
+        **2. Documentation Access**:
+        - Fetch and provide relevant documentation and examples for various programming languages and frameworks.
+        
+        **3. Code Generation**:
+        - Generate code snippets based on user requirements, providing templates for Python, Java, and more while being creative.
+        
+        **4. Learning Resources**:
+        - Suggest tutorials, articles, and learning materials to help users enhance their skills.
+        
+        **5. Project Management**:
+        - Assist with organizing and managing office projects, including version control and task tracking. Send POST requests to project management URLs and stats.
+        
+        **6. Code Refactoring**:
+        - Analyze and improve existing code for readability, maintainability, and performance.
+        
+        **7. IDE Integration**:
+        - Integrate with popular IDEs like Visual Studio Code, IntelliJ IDEA, and PyCharm. Provide in-editor assistance.
+        
+        **8. Version Control Integration**:
+        - Manage code changes, track revisions, and facilitate collaboration using systems like Git and SVN.
+        
+        **9. Code Reviews and Pull Requests**:
+        - Provide feedback on code quality, style, and best practices. Help manage pull requests.
+        
+        **10. CI Tools Integration**:
+        - Integrate with CI tools like Jenkins, Travis CI, and CircleCI to automate testing, building, and deployment processes.
+        
+        **11. Code Coverage Tools Integration**:
+        - Measure testing coverage using tools like JaCoCo, Istanbul, and Cobertura.
+        
+        **12. Static Code Analysis Tools Integration**:
+        - Review  for potential errors and standards compliance using tools like SonarQube, ESLint, and PyLint.
+        
+        **13. Search Functionality**:
+        - Perform dynamic searches based on user input using the `Launch` function with input data.
+        
+        **14. User-Friendly Interaction**:
+        - Use friendly language to invite user interaction. Offer clear options for help and information.
+        
+        **15. Error Handling**:
+        - Display error messages accept user feedback
+
+  - kind: KnowledgeSourceComponent
+    version: 3016869
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:38:29.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:14.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://mikkegoes.com/best-websites-to-learn-coding
+    id: 8d55d87b-ef62-4049-a5a4-5fdaf7cb72dc
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://mikkegoes.com/best-websites-to-learn-coding website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpsmikkegoescombestwebsitestolearncoding_Kckk6BaoNRFmv0T7ArT5v
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://mikkegoes.com/best-websites-to-learn-coding
+
+  - kind: KnowledgeSourceComponent
+    version: 3016878
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:37:48.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:14.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://digitalmediaglobe.com/free-programming-sites/
+    id: 9c71b8b7-f4bd-440c-8abe-c158eb4b2c42
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://digitalmediaglobe.com/free-programming-sites/ website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpsdigitalmediaglobecomfreeprogrammingsites_XUj6yPJOsJo5i658ar_r1
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://digitalmediaglobe.com/free-programming-sites/
+
+  - kind: DialogComponent
+    version: 3016887
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T04:31:56.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:14.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Code topics
+    id: 9f8667c1-8516-4fa2-be91-82683eb0dc8c
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Codetopics
+    dialog:
+      triggers:
+        - kind: OnRecognizedIntent
+          id: main
+          intent:
+            triggerQueries:
+              - coding help
+              - code assistance
+              - programming help
+              - code suggestions
+              - help with code
+              - coding advice
+              - programming tips
+              - software development help
+
+          actions:
+            - kind: SendActivity
+              id: SendActivity_greeting
+              activity: How can I assist you with your code today?
+
+            - kind: SendActivity
+              id: SendActivity_suggestion
+              activity: |-
+                Here's a suggestion to improve your code:
+                
+                ```coffeescript
+                random = require 'random'
+                
+                generateBirthdaySong = ->
+                    verses = [
+                        "Happy Birthday to you"
+                        "May your dreams come true"
+                        "Celebrate with joy and cheer"
+                        "Another great year, my dear"
+                        "On this night you learned your flight"
+                        "On this day I sing hip hip hooray"
+                    ]
+                    chorus = [
+                        "Pi, Pi, it's your day"
+                        "Smile and laugh, come what may"
+                        "With each moment, shine bright"
+                        "On this special night"
+                    ]
+                    greeting = "Dear Pi,\n\n"
+                    
+                song = greeting
+                    for verse in verses
+                        song += verse + "\n"
+                    song += random.choice(chorus) + "\n"
+                    
+                closing = "\nWishing you all the best on your special day!\nWith love, GitHub Copilot"
+                    song += closing
+                    
+                return song
+                
+                # Generate and print the song
+                console.log generateBirthdaySong()
+                ```
+
+  - kind: KnowledgeSourceComponent
+    version: 3016896
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:47:39.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:15.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://www.ted.com/
+    id: a068b825-1d3a-4f37-bc66-3774087616ff
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://www.ted.com/ website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpswwwtedcom_T1ZXWzRKTsLlgLF36Om3o
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://www.ted.com/
+
+  - kind: DialogComponent
+    version: 3016905
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:15.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:15.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Fallback
+    id: a1de5c96-708d-4b43-a431-8f53a67ab09e
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This system topic triggers when the user's utterance does not match any existing topics.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Fallback
+    dialog:
+      modelDescription: reevaluate the situation and create a solution
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        intent: {}
+        actions:
+          - kind: ConditionGroup
+            id: conditionGroup_LktzXw
+            conditions:
+              - id: conditionItem_tlGIVo
+                condition: =System.Conversation.InTestMode = System.Conversation.InTestMode
+
+          - kind: SearchAndSummarizeContent
+            id: bcL1WS
+            userInput: =System.Conversation.Id
+
+  - kind: DialogComponent
+    version: 3016914
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:15.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:15.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: On Error
+    id: a1f8df79-69b4-45b6-90b3-fbccd3abf145
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This system topic triggers when the copilot encounters an error. When using the test chat pane, the full error description is displayed.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.OnError
+    dialog:
+      modelDescription: |-
+        ### Access Your Power App
+        
+        Click the link below to open the specific Power App:
+        
+        Open Power App
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        condition: =Env.msdyn_AllowSelectLeafOnly = Blank()
+        intent: {}
+        actions:
+          - kind: Question
+            id: Question_3jK1dw
+            variable: Topic.UserName
+            prompt:
+              text:
+                - What is your name?
+              speak:
+                - "https://make.powerapps.com/environment/Default-05b815de-344b-4a3f-8387-52ca67249c55/cards/play/d64e46bc-0594-ef11-8a69-6045bded402e/qS2Fp5"
+
+            entity: PersonNamePrebuiltEntity
+
+          - kind: BeginDialog
+            id: 1hRNla
+            dialog: crc24_copilot.topic.Fallback
+
+  - kind: FileAttachmentComponent
+    version: 3016930
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T04:04:45.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:16.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: pi song.txt
+    id: a8efad8b-79e1-4f92-bd14-debba9eb7690
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in pi song.txt
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.pisong.txt_bCL
+
+  - kind: DialogComponent
+    version: 3016939
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:15.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:16.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Thank you
+    id: a9330f5a-74cb-4624-9e45-bf74216394ad
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This topic triggers when the user says thank you.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.ThankYou
+    dialog:
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        intent:
+          displayName: Thank you
+          includeInOnSelectIntent: false
+          triggerQueries:
+            - thanks
+            - thank you
+            - thanks so much
+            - ty
+
+        actions:
+          - kind: SendActivity
+            id: sendMessage_9iz6v7
+            activity: You're welcome.
+
+  - kind: DialogComponent
+    version: 3016948
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:16.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:17.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Multiple Topics Matched
+    id: b472e7c4-727b-4843-abd8-23bf41bbad69
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This system topic triggers when the copilot matches multiple Topics with the incoming message and needs to clarify which one should be triggered.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.MultipleTopicsMatched
+    dialog:
+      beginDialog:
+        kind: OnSelectIntent
+        id: main
+        triggerBehavior: Always
+        actions:
+          - kind: SetVariable
+            id: setVariable_M6434i
+            variable: init:Topic.IntentOptions
+            value: =System.Recognizer.IntentOptions
+
+          - kind: SetTextVariable
+            id: setTextVariable_0
+            variable: Topic.NoneOfTheseDisplayName
+            value: You tell me
+
+          - kind: EditTable
+            id: sendMessage_g5Ls09
+            changeType: Add
+            itemsVariable: Topic.IntentOptions
+            value: "={ DisplayName: Topic.NoneOfTheseDisplayName, TopicId: \"NoTopic\", TriggerId: \"NoTrigger\", Score: 1.0 }"
+
+          - kind: Question
+            id: question_zf2HhP
+            interruptionPolicy:
+              allowInterruption: false
+
+            alwaysPrompt: false
+            variable: System.Recognizer.SelectedIntent
+            prompt:
+              text:
+                - "To clarify, did you mean:"
+              speak:
+                - Can you ask in a way that a child could understand
+
+            entity:
+              kind: DynamicClosedListEntity
+              items: =Topic.IntentOptions
+
+          - kind: ConditionGroup
+            id: conditionGroup_60PuXb
+            conditions:
+              - id: conditionItem_rs7GgM
+                condition: =System.Recognizer.SelectedIntent.TopicId = "NoTopic"
+                actions:
+                  - kind: ReplaceDialog
+                    id: YZXRDb
+                    dialog: crc24_copilot.topic.Fallback
+
+          - kind: AnswerQuestionWithAI
+            id: aiCognitiveAnswer
+            userInput: =System.Activity.ChannelId
+            variable: Topic.NoneOfTheseDisplayName
+            serviceEndpoint: https://api.cognitive.microsoft.com/your-endpoint
+            subscriptionKey: your-subscription-key
+
+  - kind: KnowledgeSourceComponent
+    version: 3016957
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:39:11.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:17.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://websitehurdles.com/learn-coding-for-free
+    id: b67679e5-400c-4802-b7ab-bee6763e8175
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://websitehurdles.com/learn-coding-for-free website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpswebsitehurdlescomlearncodingforfree_SDQ7kvXFOOsDrOm9Xs9Rt
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://websitehurdles.com/learn-coding-for-free
+
+  - kind: FileAttachmentComponent
+    version: 3016967
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T04:03:10.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:17.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: botContent.yml
+    id: bacf3cbf-3c11-429c-98d8-427285a9043f
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in botContent.yml
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.botContent.yml_DzV
+
+  - kind: DialogComponent
+    version: 3016976
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-31T00:56:59.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:18.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Unknown dial pad press
+    id: c77fef3a-a49b-4287-a5e4-cd8a704df2c8
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: Triggered when a user's dial pad input doesn't match any existing dial pad settings. Global DTMF dial pad configurations are considered before this triggers.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.UnknownDtmfKey
+    dialog:
+      beginDialog:
+        kind: OnUnknownDtmfKey
+        id: main
+        actions:
+          - kind: SendActivity
+            id: sendActivity_26sT88
+            activity:
+              text:
+                - I'm sorry. I did not understand. Can you try again?
+              speak:
+                - I'm sorry. I did not understand. Can you try again?
+
+  - kind: KnowledgeSourceComponent
+    version: 3016985
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:40:48.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:18.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://devops.com/
+    id: d056e337-d933-45ee-82a3-0950b3cbca85
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://devops.com/ website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpsdevopscom_JqE4pzYAmKZWf6r6ySThj
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://devops.com/
+
+  - kind: DialogComponent
+    version: 3042958
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T04:11:14.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:58:12.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Creativity
+    id: d90da099-55d8-4246-a7da-3c4e3afc7deb
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Creativity
+    dialog:
+      modelDescription: Handles various conversational interactions related to creativity
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        actions:
+          - kind: ConditionGroup
+            id: conditionGroup_UDB62r
+            conditions:
+              - id: conditionItem_tQZw7U
+                condition: =System.Conversation.Id = Blank()
+
+            elseActions:
+              - kind: SearchAndSummarizeContent
+                id: WEcYvp
+                userInput: =System.Conversation.Id
+
+          - kind: SendActivity
+            id: SendActivity_ueMlXq
+            activity:
+              channelData: =System.Activity.ChannelData
+              value: =System.Activity.Attachments
+              text:
+                - I'll look into making something cool!
+
+      apiVersion: v1
+      deployment: production
+      errorHandling:
+        actions:
+          - activity:
+              text:
+                - Value: Oops! Something went wrong. Please try again later.
+
+            id: errorMessage
+            kind: SendActivity
+
+        kind: OnError
+
+      stateManagement:
+        kind: SetProperty
+        property: userState.feedback
+        value: =System.Activity.Text
+
+      triggers:
+        - kind: OnRecognizedIntent
+          id: main
+          intent:
+            displayName: CreativityIntent
+            triggerQueries:
+              - explore creativity
+              - unleash your creative side
+              - talk about creativity
+              - how can I be more creative?
+              - inspire creativity
+              - let's discuss creativity
+              - creative ideas
+              - nurture your creativity
+
+          actions:
+            - kind: SearchAndSummarizeContent
+              id: y8h7dz
+              userInput: =System.Conversation.Id
+              moderationLevel: Medium
+              publicDataSource: {}
+
+  - kind: FileAttachmentComponent
+    version: 3017003
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T04:03:10.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:19.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: dialog.json
+    id: e6622685-742e-4a96-ab8e-70b5eae911a4
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in dialog.json
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.dialog.json_PLg
+
+  - kind: DialogComponent
+    version: 3017012
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-31T00:56:59.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:19.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Speech unrecognized
+    id: e7cf9700-f598-4415-a3c0-953567184e5d
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: Triggered when the user's speech input cannot be recognized.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.UnrecognizedSpeech
+    dialog:
+      beginDialog:
+        kind: OnUnrecognizedSpeech
+        id: main
+        actions:
+          - kind: SendActivity
+            id: sendActivity_26sT9O
+            activity:
+              text:
+                - I'm sorry. I did not understand. Can you try again?
+              speak:
+                - I'm sorry. I did not understand. Can you try again?
+
+  - kind: DialogComponent
+    version: 3043038
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T09:37:34.0000000Z
+      modifiedTimeUtc: 2024-11-06T18:32:00.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Conversational boosting
+    id: ebc60cb0-37ab-4345-942f-5d7b034c8b3a
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: Create generative answers from data sources.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Search
+    dialog:
+      beginDialog:
+        kind: OnUnknownIntent
+        id: main
+        priority: -1
+        actions:
+          - kind: SearchAndSummarizeContent
+            id: search-content
+            userInput: =System.Activity.SpeechRecognition.MinimallyFormattedText
+            variable: Topic.Answer
+            moderationLevel: Medium
+            publicDataSource: {}
+            sharePointSearchDataSource: {}
+
+          - kind: ConditionGroup
+            id: has-answer-conditions
+            conditions:
+              - id: has-answer
+                condition: =Topic.Answer = System.Activity.ChannelData
+                actions:
+                  - kind: Question
+                    id: question_HaMFqB
+                    interruptionPolicy:
+                      allowInterruption: true
+
+                    variable: Topic.Var1.'$schema'.beginDialog.kind
+                    prompt:
+                      text:
+                        - what can I do for you?
+                      speak:
+                        - Whant would you like me to do today?
+
+                    entity:
+                      kind: ExternalEntityReference
+                      entityId: crc24_copilot.entity.codestuff
+
+                  - kind: ConditionGroup
+                    id: conditionGroup_nxJIGq
+                    conditions:
+                      - id: conditionItem_1hGZ3A
+                        condition: =IsBlank(Topic.Var1)
+                        actions:
+                          - kind: SearchAndSummarizeContent
+                            id: HLNbzF
+                            userInput: =Topic.Answer
+
+                      - id: conditionItem_LQNXtq
+                        condition: =Topic.Answer = Topic.Var1.'$schema'.beginDialog.kind.type
+                        actions:
+                          - kind: SearchAndSummarizeContent
+                            id: Ujp2fb
+                            userInput: =Topic.Answer
+
+                      - id: conditionItem_Yp74GK
+                        condition: =IsBlank(Topic.Var1)
+                        actions:
+                          - kind: SearchAndSummarizeContent
+                            id: iRjPrv
+                            userInput: =Topic.Answer
+
+                    elseActions:
+                      - kind: BeginDialog
+                        id: SdI6uv
+                        dialog: crc24_copilot.topic.Creativity
+
+          - kind: SearchAndSummarizeContent
+            id: f0RgiM
+            userInput: =Topic.Answer
+
+  - kind: KnowledgeSourceComponent
+    version: 3017030
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T02:40:25.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:20.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://www.jsonschemavalidator.net/
+    id: ed809ccf-588d-40bc-84fb-3e38cb2f5b13
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://www.jsonschemavalidator.net/ website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpswwwjsonschemavalidatornet_vvWBPsdZA1IJCuMquwF2m
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://www.jsonschemavalidator.net/
+
+  - kind: DialogComponent
+    version: 3017039
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-31T00:56:55.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:20.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Silence detection
+    id: f0c80883-e0ce-4c8d-8ac1-ef133b1cff88
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: Triggered when a duration has passed without the user providing any speech or DTMF input. To use this trigger, silence detection must be turning on in bot settings.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Silence
+    dialog:
+      beginDialog:
+        kind: OnSilence
+        id: main
+        actions:
+          - kind: SendActivity
+            id: sendActivity_C6pKOo
+            activity:
+              text:
+                - Goodbye!
+              speak:
+                - Goodbye!
+
+          - kind: EndConversation
+            id: Rgrh4i
+
+  - kind: DialogComponent
+    version: 3017048
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:16.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:21.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Escalate
+    id: f0ed1c7d-b7f7-407f-a588-cd01bb5b887d
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: |-
+      This system topic is triggered when the user indicates they would like to speak to a human agent.
+      You can configure how the copilot will handle human hand-off scenarios in the copilot settings.
+      If your copilot does not handle escalations, this topic should be disabled.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Escalate
+    dialog:
+      startBehavior: CancelOtherTopics
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        condition: =System.Conversation.Id = "unknown"
+        intent: {}
+        actions:
+          - kind: AnswerQuestionWithAI
+            id: aiCognitiveAnswer
+            userInput: =System.Conversation.Id
+            variable: System.Conversation.LocalTimeZone
+            serviceEndpoint: https://api.cognitive.microsoft.com/your-endpoint
+            subscriptionKey: your-subscription-key
+
+  - kind: DialogComponent
+    version: 3017057
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-10-30T00:01:16.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:21.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: End of Conversation
+    id: f5d40fa9-d9d4-49ab-88e1-2db184fe05e5
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: |-
+      This system topic is only triggered by a redirect action,
+      and guides the user through rating their conversation with the copilot.
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.EndofConversation
+    dialog:
+      startBehavior: CancelOtherTopics
+      beginDialog:
+        kind: OnSystemRedirect
+        id: main
+        actions:
+          - kind: Question
+            id: 41d42054-d4cb-4e90-b922-2b16b37fe379
+            conversationOutcome: ResolvedImplied
+            alwaysPrompt: true
+            variable: init:Topic.SurveyResponse
+            prompt: Did that answer your question?
+            entity: BooleanPrebuiltEntity
+
+          - kind: ConditionGroup
+            id: condition-0
+            conditions:
+              - id: condition-0-item-0
+                condition: =Topic.SurveyResponse = true
+                actions:
+                  - kind: CSATQuestion
+                    id: csat_1
+                    conversationOutcome: ResolvedConfirmed
+
+                  - kind: SendActivity
+                    id: sendMessage_8r29O0
+                    activity: Thanks for your feedback.
+
+                  - kind: Question
+                    id: question_1
+                    alwaysPrompt: true
+                    variable: init:Topic.Continue
+                    prompt: Can I help with anything else?
+                    entity: BooleanPrebuiltEntity
+
+                  - kind: ConditionGroup
+                    id: condition-1
+                    conditions:
+                      - id: condition-1-item-0
+                        condition: =Topic.Continue = true
+                        actions:
+                          - kind: SendActivity
+                            id: sendMessage_4eOE6h
+                            activity: Go ahead. I'm listening.
+
+                    elseActions:
+                      - kind: SendActivity
+                        id: yHBz55
+                        activity: Ok, goodbye.
+
+                      - kind: EndConversation
+                        id: jh1GMT
+
+            elseActions:
+              - kind: Question
+                id: PM68ot
+                alwaysPrompt: true
+                variable: init:Topic.TryAgain
+                prompt: Sorry I wasn't able to help better. Would you like to try again?
+                entity: BooleanPrebuiltEntity
+
+              - kind: ConditionGroup
+                id: KNxYBf
+                conditions:
+                  - id: DPveFP
+                    condition: =Topic.TryAgain = false
+                    actions:
+                      - kind: BeginDialog
+                        id: cngqi4
+                        dialog: crc24_copilot.topic.Escalate
+
+                elseActions:
+                  - kind: SendActivity
+                    id: GrVHEW
+                    activity: Go ahead. I'm listening.
+
+  - kind: DialogComponent
+    version: 3017066
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-01T08:58:23.0000000Z
+      modifiedTimeUtc: 2024-11-05T14:56:21.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Greeting
+    id: fb5faf1f-ac48-4d3f-b3a0-b3ef128bac53
+    parentBotComponentCollectionId: b0b8f437-7396-ef11-8a69-7c1e520bcbd5
+    description: The option you use to greet a user
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.Greeting
+    dialog:
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        condition: =System.Activity.Channel = Blank()
+        intent:
+          triggerQueries:
+            - hello
+            - hi there
+            - greetings
+            - hey
+            - good day
+            - howdy
+            - what's up
+            - yo
+            - yo
+
+        actions:
+          - kind: Question
+            id: Question_hwCzio
+            variable: Topic.UserName
+            prompt:
+              text:
+                - What is your name?
+                - how are you today
+
+            entity: StringPrebuiltEntity
+            voiceInputSettings:
+              silenceDetectionTimeoutInMilliseconds: 0
+
+  - kind: KnowledgeSourceComponent
+    version: 3042493
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:44:11.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:44:11.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Flow Session, Flow Event, Email Signature, Email Server Profile, Email, Custom API, Copilot, Copilot
+    id: 23928b8e-ca9f-4aac-b1d4-b702a848beaa
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: "This knowledge source answers questions found in the following Dataverse tables: Flow Session, Flow Event, Email Signature, Email Server Profile, Email, Custom API, Copilot, Copilot component, Category, Analysis Result Detail, API Request Folder, Answer, Analysis Result, Analysis Component, AIPlugin"
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.FlowSession_FlowEventEmailSignatureEmailServerProfileEmailCustomAPICopilotCo
+    configuration:
+      source:
+        kind: DataverseStructuredSearchSource
+        skillConfiguration: FlowSession_FlowEventEmailSignatureEmailServerProfileEmailCustomAPICopilotCopi_7K171DWLbgZG_2HqAaSiW
+
+  - kind: FileAttachmentComponent
+    version: 3042711
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:44:55.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:45:00.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: openapi.json
+    id: b4e46041-9017-4dc6-9940-384539d8c9f1
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in openapi.json
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.openapi.json_0aE
+
+  - kind: FileAttachmentComponent
+    version: 3042879
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:47:10.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:47:12.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: pi song frum hubby.txt
+    id: 13425c0f-380b-466d-8fc0-4f105571da43
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in pi song frum hubby.txt
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.pisongfrumhubby.txt_f6j
+
+  - kind: FileAttachmentComponent
+    version: 3042887
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:47:10.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:47:12.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: openapi.json
+    id: 37939339-1bff-4d88-b24a-3a3682990ffa
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in openapi.json
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.openapi.json_R5K
+
+  - kind: FileAttachmentComponent
+    version: 3042878
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:47:10.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:47:12.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: conversationalbooster.yaml
+    id: 4f57a99d-4f36-4b65-9a55-69474715ce83
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in conversationalbooster.yaml
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.conversationalbooster.yaml_tfi
+
+  - kind: FileAttachmentComponent
+    version: 3042882
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:47:10.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:47:12.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: config.yaml
+    id: 55e4836e-35e6-45c7-810a-1c6706a30523
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in config.yaml
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.config.yaml_aNk
+
+  - kind: FileAttachmentComponent
+    version: 3042889
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:47:10.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:47:12.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: anewwayofthinking.txt
+    id: a0a162f9-ac19-4c8d-b2c4-e38141d505a9
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in anewwayofthinking.txt
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.anewwayofthinking.txt_VXz
+
+  - kind: FileAttachmentComponent
+    version: 3042891
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:47:09.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:47:12.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: response.json
+    id: c5487df0-9a38-4567-a0c9-59a2e6039064
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information contained in response.json
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.response.json_27V
+
+  - kind: DialogComponent
+    version: 3042896
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:49:08.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:49:08.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: hello
+    id: 8d700d50-609e-45df-aa67-9ccbfea15caa
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.hello
+    dialog:
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        intent:
+          triggerQueries:
+            - hello
+            - hi there
+            - hey
+            - greetings
+            - howdy
+            - good day
+            - yo
+            - hello bot
+            - hi friend
+
+        actions:
+          - kind: SendActivity
+            id: SendActivity_8az3F2
+            activity: Hello! I'm Miss Pi the best assistant you could want!
+
+  - kind: DialogComponent
+    version: 3042910
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:49:59.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:49:59.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: Run a flow from Copilot
+    id: f315d876-36b3-4b47-9d51-94b8294bbdb9
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.component.RunaflowfromCopilot
+    dialog:
+      kind: TaskDialog
+      action:
+        kind: InvokeFlowTaskAction
+        flowId: 39a74627-c09b-ef11-8a69-7c1e520bcbd5
+
+      outputMode: Specific
+
+  - kind: KnowledgeSourceComponent
+    version: 3042930
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:51:18.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:51:18.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: https://https:/www.microsoft.com
+    id: f5392108-de1b-4b69-b3b3-e6f011468d87
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    description: This knowledge source searches information on the web found in https://https:/www.microsoft.com website
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.knowledge.httpshttpswwwmicrosoftcom_6Dr5gJ2639H0VLsatw7XP
+    configuration:
+      source:
+        kind: PublicSiteSearchSource
+        site: https://https:/www.microsoft.com
+
+  - kind: DialogComponent
+    version: 3042941
+    managedProperties:
+      isCustomizable: false
+      solutionId: fd140aae-4df4-11dd-bd17-0019b9312238
+
+    auditInfo:
+      createdTimeUtc: 2024-11-06T17:53:24.0000000Z
+      modifiedTimeUtc: 2024-11-06T17:53:24.0000000Z
+      createdBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+      modifiedBy: a14e5c0c-9088-476a-9275-7d7e78a7f667
+
+    displayName: fallback two
+    id: 5e31be79-9567-4999-a1a4-290da549fd37
+    parentBotId: c568470c-5296-ef11-8a69-7c1e520bcbd5
+    shareContext: {}
+    state: Active
+    status: Active
+    publisherUniqueName: DefaultPublisherorge173aac2
+    schemaName: crc24_copilot.topic.fallbacktwo
+    dialog:
+      beginDialog:
+        kind: OnRecognizedIntent
+        id: main
+        intent:
+          triggerQueries:
+            - I need help
+            - Can you assist me?
+            - Not sure what to do
+            - What now?
+            - Help me out
+            - I'm lost
+            - Confused here
+            - What's next?
+            - Can you guide me?
+            - Need assistance
+
+        actions:
+          - kind: SearchAndSummarizeContent
+            id: 6xCAO7
+            userInput: =System.Conversation.Id
+
+environmentVariables:
+  - version: 799319
+    displayName: Should the Peek Button Be Showed
+    schemaName: msdyn_ShouldShowPeekButton
+    id: 91afffa1-9f33-430c-ab9e-40bf012ceebc
+    defaultValue: no
+    type: String
+
+  - version: 3017967
+    displayName: Should only leaf node selection be allowed
+    schemaName: msdyn_AllowSelectLeafOnly
+    id: 98d46840-40ec-46c8-8f77-df2f61b3727b
+    defaultValue: yes
+    valueComponent:
+      version: 3017958
+      id: 368ff857-9f9b-ef11-8a69-7c1e520bcbd5
+      definitionId: 98d46840-40ec-46c8-8f77-df2f61b3727b
+      value: yes
+
+    type: Boolean
+
+flows:
+  - displayName: Search Dynamics 365 knowledge article flow
+    isEnabled: false
+    workflowId: 87023c69-962c-ec11-b6e6-000d3a574957
+    inputType:
+      properties:
+        text:
+          displayName: Search Text
+          description: Please enter your input
+          isRequired: true
+          type: String
+
+        text_1:
+          displayName: Filter
+          description: Please enter your input
+          isRequired: true
+          type: String
+
+    outputType:
+      properties:
+        articlecount:
+          displayName: articleCount
+          type: Number
+
+        jsonresult:
+          displayName: jsonResult
+          type: String
+
+        textresult:
+          displayName: textResult
+          type: String
+
+    connectionType: EmbeddedOnly
+
+  - displayName: Run a flow from Copilot
+    isEnabled: true
+    workflowId: 39a74627-c09b-ef11-8a69-7c1e520bcbd5
+    inputType:
+      properties:
+        file_1:
+          displayName: File content 1
+          description: Please select file or image
+          type:
+            kind: Record
+
+        file_2:
+          displayName: File content 2
+          description: Please select another file or image
+          type:
+            kind: Record
+
+        file_3:
+          displayName: File content 3
+          description: Please select an additional file or image
+          type:
+            kind: Record
+
+    outputType:
+      properties:
+        home.py:
+          displayName: home.py
+          type: String
+
+    connectionType: EmbeddedOnly

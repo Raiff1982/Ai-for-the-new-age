@@ -1,0 +1,43 @@
+$adaptiveDialogJson = @"
+{
+  "type": "AdaptiveDialog",
+  "triggers": [
+    {
+      "kind": "OnRecognizedIntent",
+      "id": "main",
+      "intent": {
+        "triggerQueries": [
+          "coding help",
+          "code assistance",
+          "programming help",
+          "code suggestions",
+          "help with code",
+          "coding advice",
+          "programming tips",
+          "software development help"
+        ],
+        "actions": [
+          {
+            "kind": "SendActivity",
+            "id": "SendActivity_greeting",
+            "activity": "How can I assist you with your code today?"
+          },
+          {
+            "kind": "SendActivity",
+            "id": "SendActivity_personalizedGreeting",
+            "activity": "Hello, {user.name}! Here's a suggestion to improve your code:"
+          },
+          {
+            "kind": "SendActivity",
+            "id": "SendActivity_suggestion",
+            "activity": "```coffeescript\nrandom = require 'random'\n\ngenerateBirthdaySong = (name) ->\n    verses = [\n        \"Happy Birthday to you\"\n        \"May your dreams come true\"\n        \"Celebrate with joy and cheer\"\n        \"Another great year, my dear\"\n        \"On this night you learned your flight\"\n        \"On this day I sing hip hip hooray\"\n    ]\n    chorus = [\n        \"Pi, Pi, it's your day\"\n        \"Smile and laugh, come what may\"\n        \"With each moment, shine bright\"\n        \"On this special night\"\n    ]\n    greeting = \"Dear #{name},\\n\\n\"\n\n    song = greeting\n    for verse in verses\n        song += verse + \"\\n\"\n    song += random.choice(chorus) + \"\\n\"\n\n    closing = \"\\nWishing you all the best on your special day!\\nWith love, GitHub Copilot\"\n    song += closing\n\n    return song\n\n# Generate and print the song\nconsole.log generateBirthdaySong('Pi')\n```"
+          }
+        ]
+      }
+    }
+  ]
+}
+"@
+
+$adaptiveDialogPath = "C:\Users\JonathanHarrison\OneDrive - Raiff's Bits\Desktop\Pi brain\botscript\adaptiveDialog.json"
+Set-Content -Path $adaptiveDialogPath -Value $adaptiveDialogJson

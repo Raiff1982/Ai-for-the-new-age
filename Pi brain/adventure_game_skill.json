@@ -1,0 +1,20 @@
+{
+  "id": "36f33bbb-4dd7-4a68-a5b8-56c7c3c32d5b",
+  "name": "Adventure Game",
+  "description": "An interactive text-based adventure game.",
+  "version": "1.0",
+  "parameters": [
+    {
+      "name": "action",
+      "type": "string",
+      "description": "The action chosen by the player."
+    }
+  ],
+  "endpoints": {
+    "start_game": {
+      "path": "/game/start",
+      "method": "POST",
+      "handler": "intro"
+    }
+  }
+}

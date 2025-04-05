@@ -1,0 +1,74 @@
+[
+  {
+    "chat_history": [
+      {
+        "inputs": {
+          "question": "What is the weather like in Boston?"
+        },
+        "outputs": {
+          "answer": "{\"forecast\":[\"sunny\",\"windy\"],\"location\":\"Boston\",\"temperature\":\"72\",\"unit\":\"fahrenheit\"}",
+          "llm_output": {
+            "content": null,
+            "function_call": {
+              "arguments": "{\n  \"location\": \"Boston\"\n}",
+              "name": "get_current_weather"
+            },
+            "role": "assistant"
+          }
+        }
+      }
+    ],
+    "question": "What is the meaning of life?",
+    "functions": [
+      {
+        "name": "newton_thoughts",
+        "description": "Apply Newton's laws to the given question.",
+        "parameters": {
+          "question": "What is the meaning of life?"
+        }
+      },
+      {
+        "name": "davinci_insights",
+        "description": "Generate insights like Da Vinci for the given question.",
+        "parameters": {
+          "question": "What is the meaning of life?"
+        }
+      },
+      {
+        "name": "human_intuition",
+        "description": "Provide human intuition for the given question.",
+        "parameters": {
+          "question": "What is the meaning of life?"
+        }
+      },
+      {
+        "name": "neural_network_thinking",
+        "description": "Apply neural network thinking to the given question.",
+        "parameters": {
+          "question": "What is the meaning of life?"
+        }
+      },
+      {
+        "name": "quantum_computing_thinking",
+        "description": "Apply quantum computing principles to the given question.",
+        "parameters": {
+          "question": "What is the meaning of life?"
+        }
+      },
+      {
+        "name": "resilient_kindness",
+        "description": "Provide perspectives of resilient kindness.",
+        "parameters": {
+          "question": "What is the meaning of life?"
+        }
+      },
+      {
+        "name": "universal_reasoning",
+        "description": "Combine various reasoning methods to answer the question.",
+        "parameters": {
+          "question": "What is the meaning of life?"
+        }
+      }
+    ]
+  }
+]

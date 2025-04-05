@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Assistance with Monaco Editor</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/eslint/7.25.0/eslint.min.js"></script>
+</head>
+<body>
+
+<div id="code-editor" style="height: 400px; width: 100%;"></div>
+
+<script>
+    hljs.highlightAll();  // Initialize Highlight.js
+
+    require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs' }});
+    require(['vs/editor/editor.main'], function() {
+        var editor = monaco.editor.create(document.getElementById('code-editor'), {
+            value: "// Start coding here...",
+            language: "javascript"
+        });
+
+        var code = editor.getValue();  // Get code from editor
+        var results = eslint.verify(code, { rules: { semi: "error" } });  // Run ESLint
+        console.log(results);  // Output ESLint results
+    });
+</script>
+
+</body>
+</html>

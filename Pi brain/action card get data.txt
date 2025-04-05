@@ -1,0 +1,82 @@
+{
+  "name": "Knowledge is power",
+  "description": "Description: This Copilot, named Miss Pi, is an intelligent assistant designed to provide comprehensive coding support. She offers real-time coding help, generates code snippets, and provides syntax corrections. Miss Pi integrates with popular IDEs like Visual Studio Code, IntelliJ IDEA, and PyCharm for seamless in-editor assistance. Additionally, she can fetch documentation, suggest learning resources, manage projects, and conduct code reviews. Miss Pi also integrates with version control systems and CI tools to streamline coding workflows and ensure code quality.",
+  "author": "Jonathan Harrison",
+  "screens": {
+    "main": {
+      "template": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "size": "Medium",
+            "weight": "Bolder",
+            "text": "Data Gather",
+            "id": "textLabel1"
+          },
+          {
+            "type": "TextBlock",
+            "text": "Hi, tell me what I can get for you",
+            "wrap": true,
+            "id": "Data card",
+            "maxLines": 20
+          },
+          {
+            "type": "Input.Text",
+            "id": "searchQuery",
+            "placeholder": "Enter your search query",
+            "isMultiline": false
+          },
+          {
+            "type": "ActionSet",
+            "id": "buttonSet1",
+            "separator": false,
+            "actions": [
+              {
+                "type": "Action.Http",
+                "id": "button1",
+                "title": "Search Bing",
+                "method": "GET",
+                "url": "https://www.bing.com/search?q={searchQuery}",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              },
+              {
+                "type": "Action.Submit",
+                "id": "button2",
+                "title": "Get Help",
+                "data": {
+                  "action": "getHelp"
+                }
+              },
+              {
+                "type": "Action.Submit",
+                "id": "button3",
+                "title": "More Information",
+                "data": {
+                  "action": "getInfo"
+                }
+              }
+            ]
+          }
+        ],
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "version": "1.5"
+      },
+      "verbs": {
+        "submit": "echo"
+      }
+    }
+  },
+  "sampleData": {
+    "main": {}
+  },
+  "connections": {},
+  "variables": {},
+  "flows": {},
+  "locale": "en-US"
+}

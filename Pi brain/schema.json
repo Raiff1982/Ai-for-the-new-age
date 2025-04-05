@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the skill"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the skill"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of what the skill does"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the skill"
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the parameter"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the parameter"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the parameter"
+          }
+        },
+        "required": ["name", "type", "description"]
+      },
+      "description": "List of parameters required by the skill"
+    },
+    "endpoints": {
+      "type": "object",
+      "properties": {
+        "start_game": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Path to access the skill"
+            },
+            "method": {
+              "type": "string",
+              "description": "HTTP method to access the skill"
+            },
+            "handler": {
+              "type": "string",
+              "description": "Handler function for the skill"
+            }
+          },
+          "required": ["path", "method", "handler"]
+        }
+      },
+      "description": "Endpoints for accessing the skill"
+    }
+  },
+  "required": ["id", "name", "description", "version", "parameters", "endpoints"]
+}

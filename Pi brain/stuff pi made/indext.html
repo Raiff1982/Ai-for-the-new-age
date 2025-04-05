@@ -1,0 +1,34 @@
+// Initialize Highlight.js
+hljs.highlightAll();
+
+// Define the paths for Monaco Editor
+require.config({
+    paths: {
+        'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs'
+    }
+});
+
+// Load Monaco Editor
+require(['vs/editor/editor.main'], function() {
+    const editor = monaco.editor.create(document.getElementById('container'), {
+        value: [
+            'function x() {',
+            '\tconsole.log("Hello world!");',
+            '}'
+        ].join('\n'),
+        language: 'javascript'
+    });
+
+    // Get code from editor
+    const code = editor.getValue();
+
+    // Verify code using ESLint
+    const results = eslint.verify(code, {
+        rules: {
+            semi: 2
+        }
+    });
+
+    // Display results
+    console.log(results);
+});

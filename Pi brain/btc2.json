@@ -1,0 +1,96 @@
+{
+  "txid": "7d2579517a76739dd2f4682f7d01d055e662254df9c842dac6ed2daf9a1ff00f",
+  "size": 468,
+  "version": 1,
+  "locktime": 0,
+  "fee": 3372,
+  "inputs": [
+    {
+      "coinbase": false,
+      "txid": "22661933eb343b8e72a0b7e5e448d9fb2378c4283126eaf70588c9eda7c76959",
+      "output": 0,
+      "sigscript": "",
+      "sequence": 4294967293,
+      "pkscript": "00141c6977423aa4b82a0d7f8496cdf3fc2f8b4f580c",
+      "value": 164328628,
+      "address": "bc1qr35hws365juz5rtlsjtvmulu97957kqvr3zpw3",
+      "witness": [
+        "304402204b983b0223f8473ec2ef64302edee459b8dcbf655a44659510a7de852525547002206f10f7a27c418b7cda86bbb696ab611652148a0ca17df3b7306230f5ab7660a901",
+        "02084ad9ff2a070ef71f32375ff91e5f98448afc62bfb5934c3c15b4348cf11df7"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "address": "bc1qr35hws365juz5rtlsjtvmulu97957kqvr3zpw3",
+      "pkscript": "00141c6977423aa4b82a0d7f8496cdf3fc2f8b4f580c",
+      "value": 162420397,
+      "spent": false,
+      "spender": null
+    },
+    {
+      "address": "3BFQpWAxRif9fVgXeLNnSw2ipSszhpLzr6",
+      "pkscript": "a91468d98e2a6ac3a2d9e3ba680eaaf501afd1e8c6cc87",
+      "value": 673754,
+      "spent": false,
+      "spender": null
+    },
+    {
+      "address": "bc1q4jqrmlpjz9tky2zgh93ala7xs9j4ygjnw4lsya",
+      "pkscript": "0014ac803dfc321157622848b963dff7c68165522253",
+      "value": 341866,
+      "spent": false,
+      "spender": null
+    },
+    {
+      "address": "bc1q4xu3hgxazrl2qcld0eakwgx2gfm9w0ucuu3jue",
+      "pkscript": "0014a9b91ba0dd10fea063ed7e7b6720ca4276573f98",
+      "value": 207610,
+      "spent": false,
+      "spender": null
+    },
+    {
+      "address": "36ZJhjTMU9ToM8QxKW56oUUpWngSuTFV9i",
+      "pkscript": "a91435634ec75efdcdcc558da4cf93ea85af0af551c187",
+      "value": 177161,
+      "spent": false,
+      "spender": null
+    },
+    {
+      "address": "bc1qg4583r9v4uceyps896vkhmpf8wap6y38d5wx77ng0scefywht7qq9ne07f",
+      "pkscript": "00204568788cacaf319206072e996bec293bba1d12276d1c6f7a687c319491d75f80",
+      "value": 150158,
+      "spent": false,
+      "spender": null
+    },
+    {
+      "address": "bc1q42g5yqfhzuqrzrklzm43vup3wusjtkq08u9v6qsae8pnxk7h4ftqgfmmxj",
+      "pkscript": "0020aa914201371700310edf16eb167031772125d80f3f0acd021dc9c3335bd7aa56",
+      "value": 136612,
+      "spent": false,
+      "spender": null
+    },
+    {
+      "address": "13us6rAuVoAc2pfk1MtEGzZgU6wXGPkNp2",
+      "pkscript": "76a9141fefb421e281421c2dd7a5e8ae02e5f28e281f6388ac",
+      "value": 136577,
+      "spent": false,
+      "spender": null
+    },
+    {
+      "address": "bc1qfch8l8ajymlwr2hfl76gc6mc9ucv47dd5a6gku",
+      "pkscript": "00144e2e7f9fb226fee1aae9ffb48c6b782f30caf9ad",
+      "value": 81121,
+      "spent": false,
+      "spender": null
+    }
+  ],
+  "block": {
+    "height": 868157,
+    "position": 1817
+  },
+  "deleted": false,
+  "time": 1730324258,
+  "rbf": false,
+  "weight": 1545
+}

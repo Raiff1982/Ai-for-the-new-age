@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"ms-azuretools.vscode-azurestorage",
+		"fabioz.vscode-pydev-python-debugger",
+		"fabioz.vscode-pydev",
+		"sema4ai.sema4ai",
+		"ms-azuretools.vscode-azureresourcegroups",
+		"huggingface.huggingface-vscode"
+	]
+}
